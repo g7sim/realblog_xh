@@ -39,13 +39,13 @@ class Realblog
         global $plugin_cf;
 
         self::registerCommands();
-        if (isset($plugin_cf['realblog']['auto_publish'])) {
+       if (isset($plugin_cf['realblog']['auto_publish']) && $plugin_cf['realblog']['auto_publish']) {
             self::autoPublish();
         }
-        if (isset($plugin_cf['realblog']['auto_archive'])) {
+       if (isset($plugin_cf['realblog']['auto_archive']) && $plugin_cf['realblog']['auto_archive']) { 
             self::autoArchive();
         }
-        if (isset($plugin_cf['realblog']['rss_enabled'])) {
+       if (isset($plugin_cf['realblog']['rss_enabled']) && $plugin_cf['realblog']['rss_enabled']) {
             self::emitAlternateRSSLink();
             $rssFeedRequested = filter_input(
                 INPUT_GET,
